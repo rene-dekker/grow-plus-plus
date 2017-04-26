@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p %c{1} - %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="jul" class="com.dekkerr.gpp.logging.JULAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p %c{1} - %m%n"/>
+    </layout>
+  </appender>
+
+  <category name="com.google.inject.internal.util.FinalizableReferenceQueue">
+    <level value="ERROR"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.JDO">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.Utility">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.Transaction">
+    <level value="WARN"/>
+    <appender-ref ref="console"/>
+  </category>
+  <category name="DataNucleus.Datastore">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.ClassLoading">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.Plugin">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.ValueGeneration">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.Enhancer">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+  <category name="DataNucleus.SchemaTool">
+    <level value="WARN"/>
+    <appender-ref ref="jul"/>
+  </category>
+
+  <root>
+    <priority value ="info" />
+    <appender-ref ref="jul" />
+  </root>
+</log4j:configuration>
